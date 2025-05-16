@@ -8,7 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .table-dark tbody tr {
-            transition: background-color 0.3s ease; /* Transição suave para o efeito hover */
+            transition: background-color 0.3s ease; /* Transiï¿½ï¿½o suave para o efeito hover */
         }
         .table-dark tbody tr:hover {
             background-color: #495057; /* Cor de fundo escura ao passar o mouse */
@@ -27,11 +27,11 @@
 </head>
 
 <body class="container mt-5">
-    <h3><span class="badge badge-dark">Semana 01</span> - Exemplo 08 - Listagem Geral de Produtos - Usando base64</h3>
+    <h3><span class="badge badge-dark">Filmes</span> Exemplo 08 - Listagem Filmes - Usando base64</h3>
     <?php
         include_once('conexao.php');
         
-        $query = mysqli_query($conexao, "SELECT * FROM tabelaimg ORDER BY produto");
+        $query = mysqli_query($conexao, "SELECT * FROM tabfilmes ORDER BY Id");
 
         if (!$query) {
             echo '<div class="alert alert-danger" role="alert">
@@ -45,11 +45,11 @@
             echo '<table class="table table-dark table-striped">';
             echo '<thead>';
             echo '<tr>';
-            echo '<th width="30px" class="text-center">Id</th>';
-            echo '<th width="100px">CÃ³digo</th>';
-            echo '<th width="250px">Produto</th>';
-            echo '<th width="100px">Valor</th>';
-            echo '<th width="100px">Imagem</th>';
+            echo '<th width="30px" class="text-center">Data</th>';
+            echo '<th width="100px class="text-center">Filme</th>';
+            echo '<th width="250px class="text-center">DescriÃ§Ã£o</th>';
+            echo '<th width="100px class="text-center">IMDB</th>';
+            echo '<th width="100px class="text-center">Imagem</th>';
             echo '</tr>';
             echo '</thead>';
             echo '<tbody>';
@@ -58,13 +58,13 @@
                 $imagem = empty($dados['imagem']) ? 'SemImagem.png' : htmlspecialchars($dados['imagem']);
                 $id = base64_encode($dados['id']);
                 echo '<tr>';
-                echo '<td class="text-center">' . htmlspecialchars($dados['id']) . '</td>';
-                echo '<td>' . htmlspecialchars($dados['codigo']) . '</td>';
-                echo '<td>' . htmlspecialchars($dados['produto']) . '</td>';
-                echo '<td class="text-right">R$ ' . number_format($dados['valor'], 2, ',', '.') . '</td>';
+                echo '<td class="text-center">' . htmlspecialchars(date('d/m/Y', strtotime($dados['data']))) . '</td>';
+                echo '<td>' . htmlspecialchars($dados['filme']) . '</td>';
+                echo '<td>' . htmlspecialchars($dados['descricao']) . '</td>';
+                echo '<td class="text-center">' . number_format($dados['imdb'], 1) . '</td>';
                 echo '<td class="text-center">
-                        <a href="verproduto.php?id=' . $id . '">
-                            <img src="imagens/' . $imagem . '" alt="Imagem do produto" title="Clique para ver o produto">
+                        <a href="verfilme.php?id=' . $id . '">
+                            <img src="imagens/' . $imagem . '" alt="Imagem do produto" title="Clique para ver o Filme">
                         </a>
                       </td>';
                 echo '</tr>';

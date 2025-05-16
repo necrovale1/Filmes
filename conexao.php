@@ -2,7 +2,7 @@
 $host = "localhost"; 			
 $user = "root"; 
 $pass = ""; 
-$banco = "banco";
+$banco = "filmes";
 
 // criando a linha de conexão
 $conexao = @mysqli_connect($host, $user, $pass, $banco);
