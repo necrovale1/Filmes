@@ -74,7 +74,8 @@
                         ?>
                     </div>
                     <div class="details">
-                        <p><b>Data: </b> <?php echo htmlspecialchars($dados['data']); ?></p>
+                   <p><b>Data: </b> <?php echo htmlspecialchars(date('d/m/Y', strtotime($dados['data']))); ?></p>
+
                         <p><b>Filme: </b> <?php echo htmlspecialchars($dados['filme']); ?></p>
                         <p><b>Imagem: </b> <?php echo htmlspecialchars($dados['imagem']); ?></p>
                         <p class="description"><b>Descrição:</b> <?php echo htmlspecialchars($dados['descricao']); ?></p>
