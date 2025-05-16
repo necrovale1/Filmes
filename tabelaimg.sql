@@ -1,53 +1,74 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.2
--- http://www.phpmyadmin.net
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
--- Máquina: localhost
--- Data de Criação: 01-Maio-2017 às 21:25
--- Versão do servidor: 5.6.13
--- versão do PHP: 5.4.17
+-- Host: 127.0.0.1
+-- Tempo de geração: 17/05/2025 às 00:23
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de Dados: `banco`
+-- Banco de dados: `filmes`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tabelaimg`
+-- Estrutura para tabela `tabfilmes`
 --
-create database banco;
-use banco;
-CREATE TABLE IF NOT EXISTS `tabelaimg` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `codigo` int(11) NOT NULL,
-  `produto` varchar(80) NOT NULL,
-  `descricao` varchar(250) NOT NULL,
-  `data` date NOT NULL,
-  `valor` decimal(10,2) NOT NULL,
-  `imagem` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+CREATE DATABASE FILMES;
+USE  FILMES;
+CREATE TABLE `tabfilmes` (
+  `id` int(10) NOT NULL,
+  `codigo` int(11) DEFAULT NULL,
+  `filme` varchar(80) DEFAULT NULL,
+  `descricao` varchar(250) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `imdb` int(2) DEFAULT NULL,
+  `imagem` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Extraindo dados da tabela `tabelaimg`
+-- Despejando dados para a tabela `tabfilmes`
 --
 
-INSERT INTO `tabelaimg` (`id`, `codigo`, `produto`, `descricao`, `data`, `valor`, `imagem`) VALUES
-(1, 102030, 'Horizon - Zero Dawn - PS4', 'Em um mundo aberto, exuberante, vibrante e pós-apocalíptico, criaturas mecanizadas colossais vagam por uma paisagem fora do controle da humanidade.Ao longo do tempo, a evolução humana regrediu para uma existência tribal de caça e colheita ...', '2017-05-01', '199.29', 'ZeroDawn.png'),
-(2, 112233, 'Assassin''s Creed - Unity - PS4', 'Paris, 1789. A Revolução Francesa transforma a antes magnifica cidade em um lugar de terror e caos. Suas ruas de paralelepípedos estão vermelhas com o sangue de pessoas comuns que se atreveram a levantar-se contra a aristocracia opressiva ...', '2017-05-01', '129.00', 'AssassinCreed.png'),
-(3, 302010, 'God Of War III - Remasterizado - PS4', 'Originalmente desenvolvido pelo Santa Monica Studio da Sony Computer Entertainment, exclusivamente para o sistema PLAYSTATION®3, God of War® III foi remasterizado para o sistema PLAYSTATION®4, com compatibilidade de 1080p em 60fps para suas ...', '2017-05-01', '99.49', 'GodOfWar.png'),
-(4, 332211, 'Yooka-Laylee - PS4', '''Yooka-Laylee é uma nova plataforma de mundo aberto do principal criador por trás dos Banjo-Kazooie e Donkey Kong Country. Renovada na Playtonic Games, a equipe está construindo um sucessor espiritual para seu trabalho mais estimado do passado ...', '2017-05-01', '169.90', 'YookaLaylee.png'),
-(5, 123456, 'The Last Guardian - PS4', 'The Last Guardian – PS4 é um dos games mais aguardados do momento. Ele possui uma narrativa de flashback, com um homem maduro contando histórias de quando era jovem, justamente na época em que encontra uma criatura conhecida como ''Trico'', que ...', '2017-05-01', '149.00', '');
+INSERT INTO `tabfilmes` (`id`, `codigo`, `filme`, `descricao`, `data`, `imdb`, `imagem`) VALUES
+(1, 11, 'A bruxa', 'Filme de uma bruxa perversa', '2025-05-18', 10, 'a_bruxa.jpg'),
+(2, 22, 'Django Livre', 'Filme de um ex excravo que luta  para libertar sua esposa', '2025-05-26', 9, 'django.jpg'),
+(3, 33, 'Tumulo dos vagalumes', 'Horrores da segunda guerra mundial', '2025-05-16', 8, 'vagulumes.jpg'),
+(4, NULL, NULL, NULL, NULL, NULL, ' '),
+(5, 33, 'O senhor dos anéis', 'Show de bola', '2025-05-21', 10, 'senhor_aneis.jpg');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices de tabela `tabfilmes`
+--
+ALTER TABLE `tabfilmes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `tabfilmes`
+--
+ALTER TABLE `tabfilmes`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
